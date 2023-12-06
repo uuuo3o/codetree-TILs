@@ -9,10 +9,10 @@ public class Main {
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         int mathA = Integer.parseInt(st.nextToken());
-        int mathB = Integer.parseInt(st.nextToken());
+        int engA = Integer.parseInt(st.nextToken());
 
         st = new StringTokenizer(br.readLine());
-        int engA = Integer.parseInt(st.nextToken());
+        int mathB = Integer.parseInt(st.nextToken());
         int engB = Integer.parseInt(st.nextToken());
 
         System.out.println(mathA > mathB && engA > engB ? 1 : 0);
