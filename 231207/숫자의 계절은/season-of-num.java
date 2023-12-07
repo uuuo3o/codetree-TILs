@@ -16,7 +16,7 @@ public class Main {
         } else if (month < 9) {
             System.out.println("Summer");
         } else if (month < 12) {
-            System.out.println("Winter");
+            System.out.println("Fall");
         }
     }
 }
