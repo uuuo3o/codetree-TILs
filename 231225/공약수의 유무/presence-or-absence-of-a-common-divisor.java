@@ -13,7 +13,7 @@ public class Main {
 
         boolean condition = false;
         for (int i = a; i < b + 1; i++) {
-            if ((1920 % i == 0) || (2880 % i == 0)) {
+            if ((1920 % i == 0) && (2880 % i == 0)) {
                 condition = true;
                 break;
             }
