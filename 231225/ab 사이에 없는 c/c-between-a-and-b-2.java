@@ -14,16 +14,16 @@ public class Main {
 
         boolean condition = false;
         for (int i = a; i < b + 1; i++) {
-            if (c % i != 0) {
+            if (i % c == 0) {
                 condition = true;
                 break;
             }
         }
 
         if (condition) {
-            bw.write("YES");
-        } else {
             bw.write("NO");
+        } else {
+            bw.write("YES");
         }
 
         bw.flush();
