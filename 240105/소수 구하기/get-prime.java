@@ -9,13 +9,18 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
 
+        int ans = 0;
         for (int i = 2; i <= n; i++) {
-            for (int j = 2; j < n; j++) {
-                if (i % j == 0 && i != j) break;
-                else {
-                    bw.write(i + " ");
-                    break;
+
+            int cnt = 1;
+            for (int j = 2; j <= n; j++) {
+                if (i % j == 0) {
+                    cnt++;
                 }
+            }
+
+            if (cnt == 2) {
+                bw.write(i + " ");
             }
         }
 
