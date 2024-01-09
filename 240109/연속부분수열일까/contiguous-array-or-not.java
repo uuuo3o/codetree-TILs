@@ -26,12 +26,12 @@ public class Main {
         }
 
         // 수열 B가 수열 A의 연속부분순열인지 판별
-        boolean result = false;
         int idx = 0, i = 0;
+        int cnt = 0;
         if (n2 == 1) {
             for (int j = 0; j < n1; j++) {
                 if (A[j] == B[0]) {
-                    result = true;
+                    cnt++;
                     break;
                 }
             }
@@ -39,18 +39,15 @@ public class Main {
             while (i < n2) {
                 if (A[idx++] == B[i]) {
                     i++;
-                    result = true;
+                    cnt++;
                 } else {
-                    result = false;
-
-                    if (i >= 1) {
-                        break;
-                    }
+                    i = 0;
+                    cnt = 0;
                 }
             }
         }
 
-        if (result) {
+        if (cnt == n2) {
             bw.write("Yes");
         } else {
             bw.write("No");
