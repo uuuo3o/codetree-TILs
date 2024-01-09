@@ -7,47 +7,51 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int n1 = Integer.parseInt(st.nextToken());  // 수열 A의 length
-        int n2 = Integer.parseInt(st.nextToken());  // 수열 B의 length
+        int n1 = Integer.parseInt(st.nextToken());  // 수열 A의 길이
+        int n2 = Integer.parseInt(st.nextToken());  // 수열 B의 길이
 
-        int[] A = new int[n1];  // 수열 A
-        int[] B = new int[n2];  // 수열 B
+        int[] A = new int[n1];
+        int[] B = new int[n2];
 
-        // 수열 A의 원소
+        // 수열 A, B에 값 삽입
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n1; i++) {
             A[i] = Integer.parseInt(st.nextToken());
         }
 
-        // 수열 B의 원소
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n2; i++) {
             B[i] = Integer.parseInt(st.nextToken());
         }
 
-        // 수열 B가 수열 A의 연속부분순열인지 판별
-        int idx = 0, i = 0;
-        int cnt = 0;
+        // 연속부분순열일 경우 true, 아닐 경우 false
+        boolean result = false;
+        int idx = 0;
         if (n2 == 1) {
-            for (int j = 0; j < n1; j++) {
-                if (A[j] == B[0]) {
-                    cnt++;
+            // 수열 B의 크기가 1일 경우, 존재하는지 여부에 따라 result 결정
+            for (int i = 0; i < n1; i++) {
+                if (A[i] == B[0]) {
+                    result = true;
                     break;
                 }
             }
         } else {
-            while (i < n2) {
-                if (A[idx++] == B[i]) {
-                    i++;
-                    cnt++;
+            // 크기가 2 이상일 경우, 연속하는지 판별해 result 결정
+            for (int i = 0; i < n1; i++) {
+                if (A[i] == B[idx]) {
+                    idx++;
+
+                    if (idx == n2) {
+                        result = true;
+                        break;
+                    }
                 } else {
-                    i = 0;
-                    cnt = 0;
+                    idx = 0;
                 }
             }
         }
 
-        if (cnt == n2) {
+        if (result) {
             bw.write("Yes");
         } else {
             bw.write("No");
