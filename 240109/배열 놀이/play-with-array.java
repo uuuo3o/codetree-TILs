@@ -10,7 +10,7 @@ public class Main {
         int n = Integer.parseInt(st.nextToken());
         int q = Integer.parseInt(st.nextToken());
 
-        int caseNum = 0, a = 0, b = 0, idx = 0;
+        int caseNum = 0, a = 0, b = 0;
 
         int[] nArray = new int[n];
 
@@ -31,13 +31,18 @@ public class Main {
             if (caseNum == 1) {
                 bw.write(nArray[a - 1] + "\n");
             } else if (caseNum == 2) {
+                int idx = -1;
                 for (int j = 0; j < n; j++) {
                     if (nArray[j] == a) {
                         idx = j;
                         break;
                     }
                 }
-                bw.write((idx + 1) + "\n");
+                if (idx == -1) {
+                    bw.write(0 + "\n");
+                } else {
+                    bw.write((idx + 1) + "\n");
+                }
             } else {
                 for (int j = (a - 1); j < b; j++) {
                     bw.write(nArray[j] + " ");
