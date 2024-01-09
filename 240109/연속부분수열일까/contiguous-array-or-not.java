@@ -27,27 +27,16 @@ public class Main {
         // 연속부분순열일 경우 true, 아닐 경우 false
         boolean result = false;
         int idx = 0;
-        if (n2 == 1) {
-            // 수열 B의 크기가 1일 경우, 존재하는지 여부에 따라 result 결정
-            for (int i = 0; i < n1; i++) {
-                if (A[i] == B[0]) {
+        for (int i = 0; i < n1; i++) {
+            if (A[i] == B[idx]) {
+                idx++;
+
+                if (idx == n2) {
                     result = true;
                     break;
                 }
-            }
-        } else {
-            // 크기가 2 이상일 경우, 연속하는지 판별해 result 결정
-            for (int i = 0; i < n1; i++) {
-                if (A[i] == B[idx]) {
-                    idx++;
-
-                    if (idx == n2) {
-                        result = true;
-                        break;
-                    }
-                } else {
-                    idx = 0;
-                }
+            } else {
+                idx = 0;
             }
         }
 
