@@ -16,14 +16,14 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < m; j++) {
                 A[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < m; j++) {
                 B[i][j] = Integer.parseInt(st.nextToken());
             }
         }
