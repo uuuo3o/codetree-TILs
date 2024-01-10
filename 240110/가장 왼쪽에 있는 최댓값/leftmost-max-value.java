@@ -11,21 +11,12 @@ public class Main {
         int[] array = new int[n];
 
         int maxValue = Integer.MIN_VALUE;
-        int idx = -1;
+        int idx = n;
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            int num = Integer.parseInt(st.nextToken());
-            array[i] = num;
-
-            if (maxValue < num) {
-                maxValue = num;
-                idx = i;
-            }
+            array[i] = Integer.parseInt(st.nextToken());
         }
-
-        // 최초 최댓값 위치
-        bw.write((idx + 1) + " ");
 
         while (idx != 0) {
             maxValue = -1;
