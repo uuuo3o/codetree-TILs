@@ -15,21 +15,16 @@ public class Main {
             array[i] = Integer.parseInt(st.nextToken());
         }
 
-        if (n < 2) {
-            bw.write(0 + " ");
-        } else {
-            int maxProfit = 0;
-            int minPrice = array[0];
+        int maxProfit = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int profit = array[j] - array[i];
 
-            for (int i = 1; i < n; i++) {
-                int currentPrice = array[i];
-                int profit = currentPrice - minPrice;
                 maxProfit = Math.max(maxProfit, profit);
-                minPrice = Math.min(minPrice, currentPrice);
             }
-
-            bw.write(maxProfit + " ");
         }
+
+        bw.write(maxProfit + " ");
 
         bw.flush();
         bw.close();
