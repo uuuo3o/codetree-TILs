@@ -9,7 +9,7 @@ public class Main {
 //        StringTokenizer st = new StringTokenizer(br.readLine());
 
         String str = br.readLine();
-        String newStr = str.substring(0, 2) + str.substring(3, str.length() - 2) + str.substring(str.length() - 1);
+        String newStr = str.charAt(0) + str.substring(3, str.length() - 2) + str.substring(str.length() - 1);
 
         bw.write(newStr);
 
