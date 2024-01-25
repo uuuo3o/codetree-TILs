@@ -16,12 +16,12 @@ public class Main {
 
             if (rmvIdx == 0) {
                 str = str.substring(1);
-            } else if (rmvIdx > length) {
+            } else if (rmvIdx > length - 1) {
                 str = str.substring(0, length - 1);
             } else {
                 str = str.substring(0, rmvIdx) + str.substring(rmvIdx + 1);
             }
-            
+
             length = str.length();
             bw.write(str + "\n");
         }
