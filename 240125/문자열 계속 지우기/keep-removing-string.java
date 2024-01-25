@@ -13,35 +13,8 @@ public class Main {
 
         while (A.contains(B)) {
 
-            int j = 0, idx = -1;
-            boolean check = false;
-
-            for (int i = 0; i < A.length(); i++) {
-                check = false;
-                if (A.charAt(i) == B.charAt(j)) {
-                    j++;
-                    check = true;
-
-                    if (j == B.length()) {
-                        idx = i;
-                        break;
-                    }
-                }
-            }
-
-            if (check) {
-                if (B.length() == 1) {
-                    if (idx == 0) {
-                        A = A.substring(1);
-                    } else {
-                        A = A.substring(0, idx) + A.substring(idx + 1);
-                    }
-                } else {
-                    A = A.substring(0, idx - 1) + A.substring(idx + j - 1);
-                }
-            } else {
-                break;
-            }
+            int idx = A.indexOf(B);
+            A = A.substring(0, idx) + A.substring(idx + B.length());
         }
 
         bw.write(A);
