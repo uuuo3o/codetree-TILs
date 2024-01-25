@@ -30,7 +30,15 @@ public class Main {
             }
 
             if (check) {
-                A = A.substring(0, idx - 1) + A.substring(idx + 1);
+                if (B.length() == 1) {
+                    if (idx == 0) {
+                        A = A.substring(1);
+                    } else {
+                        A = A.substring(0, idx) + A.substring(idx + 1);
+                    }
+                } else {
+                    A = A.substring(0, idx - 1) + A.substring(idx + j - 1);
+                }
             } else {
                 break;
             }
