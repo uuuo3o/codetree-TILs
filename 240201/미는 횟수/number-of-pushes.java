@@ -12,14 +12,14 @@ public class Main {
         String B = br.readLine();
 
         int cnt = 0;
-        while (cnt < B.length()) {
+        while (cnt < A.length()) {
             cnt++;
-            B = B.charAt(B.length() - 1) + B.substring(0, B.length() - 1);
+            A = A.charAt(A.length() - 1) + A.substring(0, A.length() - 1);
 
-            if (B.equals(A)) break;
+            if (A.equals(B)) break;
         }
 
-        if (cnt >= B.length()) {
+        if (cnt >= A.length()) {
             bw.write(-1 + "");
         } else {
             bw.write(cnt + "");
