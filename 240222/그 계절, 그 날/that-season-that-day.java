@@ -24,7 +24,10 @@ public class Main {
     }
 
     private static boolean isLeapYear(int y) {
-        return y % 4 == 0 && y % 100 == 0 && y % 400 == 0;
+        if (y % 100 == 0 && y % 400 != 0) {
+            return false;
+        }
+        return y % 4 == 0;
     }
 
     private static int lastDayNum(int y, int m) {
@@ -46,7 +49,7 @@ public class Main {
     private static boolean isExistedDay(int y, int m, int d) {
         int lastDayNum = lastDayNum(y, m);
 
-        return d < lastDayNum;
+        return d <= lastDayNum;
     }
 
     private static String detectSeason(int m) {
