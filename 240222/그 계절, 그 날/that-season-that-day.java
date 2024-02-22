@@ -31,13 +31,14 @@ public class Main {
     }
 
     private static int lastDayNum(int y, int m) {
-        if (isLeapYear(y)) {
-            if (m == 2) {
+        if (m == 2) {
+            if (isLeapYear(y)) {
                 return 29;
             } else {
                 return 28;
             }
         }
+
         if (m == 4 || m == 6 || m == 9 || m == 11) {
             return 30;
         }
