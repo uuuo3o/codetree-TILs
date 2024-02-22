@@ -23,15 +23,16 @@ public class Main {
         int cnt = 0;
 
         for (int i = a; i <= b; i++) {
-            if (is369Num(i)) cnt++;
+            if ((i % 3 == 0) || contains369(i)) cnt++;
         }
 
         return cnt;
     }
 
-    public static boolean is369Num(int i) {
-        return (i % 3 == 0) ||
-                (i % 10 == 3) || (i % 10 == 6) || (i % 10 == 9) ||
-                (i / 10 == 3) || (i / 10 == 6) || (i / 10 == 9);
+    public static boolean contains369(int i) {
+        String numStr = String.valueOf(i);
+        return numStr.contains(String.valueOf(3)) ||
+                numStr.contains(String.valueOf(6)) ||
+                numStr.contains(String.valueOf(9));
     }
 }
