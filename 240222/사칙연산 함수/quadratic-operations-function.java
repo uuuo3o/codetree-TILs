@@ -14,13 +14,13 @@ public class Main {
         int c = Integer.parseInt(st.nextToken());
 
         if (o.equals("+")) {
-            bw.write((a + c) + "");
+            bw.write(a + " + " + c + " = " + (a + c));
         } else if (o.equals("-")) {
-            bw.write((a - c) + "");
+            bw.write(a + " - " + c + " = " + (a - c));
         } else if (o.equals("/")) {
-            bw.write((a / c) + "");
+            bw.write(a + " / " + c + " = " + (a / c));
         } else if (o.equals("*")) {
-            bw.write((a * c) + "");
+            bw.write(a + " * " + c + " = " + (a * c));
         } else {
             bw.write("False");
         }
