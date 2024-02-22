@@ -22,11 +22,11 @@ public class Main {
 
     public static int calculateLCM(int n, int m){
 
-        int i = 2;
+        int i = 1;
         while ((n * i) % m != 0) {
             i++;
         }
-        
+
         return (n * i);
     }
 }
