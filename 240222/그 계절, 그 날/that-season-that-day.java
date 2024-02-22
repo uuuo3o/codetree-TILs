@@ -34,11 +34,10 @@ public class Main {
         if (isLeapYear(y)) {
             if (m == 2) {
                 return 29;
+            } else {
+                return 28;
             }
-        } else {
-            return 28;
         }
-
         if (m == 4 || m == 6 || m == 9 || m == 11) {
             return 30;
         }
