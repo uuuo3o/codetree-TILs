@@ -27,6 +27,8 @@ public class Main {
 
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == target.charAt(0)) {
+                if (i + target.length() > str.length()) break;
+
                 condition = true;
                 idx = i + 1;
 
