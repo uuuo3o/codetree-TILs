@@ -22,7 +22,7 @@ public class Main {
     }
 
     private static int recursion(int[] arr, int idx) {
-        if (idx < 1) {
+        if (idx < 0) {
             return 0;
         }
 
