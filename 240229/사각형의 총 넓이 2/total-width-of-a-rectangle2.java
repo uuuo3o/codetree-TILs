@@ -24,10 +24,9 @@ public class Main {
 
             for (int j = x1; j < x2; j++) {
                 for (int k = y1; k < y2; k++) {
-                    if (matrix[j][k] == 1) {
-                        break;
+                    if (matrix[j][k] != 1) {
+                        matrix[j][k]++;
                     }
-                    matrix[j][k]++;
                 }
             }
         }
