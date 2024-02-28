@@ -10,7 +10,7 @@ public class Main {
         StringTokenizer st;
         
         int n = Integer.parseInt(br.readLine());
-        int[] range = new int[100];
+        int[] range = new int[101];
 
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
