@@ -17,18 +17,14 @@ public class Main {
             array[i] = Integer.parseInt(br.readLine());
         }
 
-        int cnt = 0;
+        int cnt = 1;
         ArrayList<Integer> continuous = new ArrayList<>();
-        for (int i = 0; i < array.length - 1; i++) {
-            cnt++;
-
-            if (array[i] != array[i + 1]) {
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] != array[i]) {
                 continuous.add(cnt);
                 cnt = 0;
             }
-            if (i == array.length - 2) {
-                cnt++;
-            }
+            cnt++;
         }
         continuous.add(cnt);
 
