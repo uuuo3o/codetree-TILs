@@ -6,6 +6,7 @@ public class Main {
     static final int[] dx = new int[]{1, 0, -1, 0};
     static final int[] dy = new int[]{0, -1, 0, 1};
     static int dirNum = 3;
+    static int x = 0, y = 0;
 
     public static void main(String[] args) throws Exception {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -16,11 +17,11 @@ public class Main {
         String commandStr = st.nextToken();
         char[] command = commandStr.toCharArray();
 
-        for (int i = 0; i < command.length - 1; i++) {
+        for (int i = 0; i < command.length; i++) {
             rotate(command[i]);
         }
 
-        bw.write(dx[dirNum] + " " + dy[dirNum]);
+        bw.write(x + " " + y);
 
         bw.flush();
         bw.close();
@@ -30,8 +31,11 @@ public class Main {
     private static void rotate(char rotateDir) {
         if (rotateDir == 'L') {
             dirNum = (dirNum - 1 + 4) % 4;
-        } else {
+        } else if (rotateDir == 'R'){
             dirNum = (dirNum + 1) % 4;
+        } else {
+            x += dx[dirNum];
+            y += dy[dirNum];
         }
     }
 }
