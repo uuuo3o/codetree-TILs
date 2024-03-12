@@ -20,9 +20,14 @@ public class Main {
         int maxCnt = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n - 2; j++) {
-                for (int k = i + 1; k < n; k++) {
+                for (int k = 0; k < n; k++) {
                     for (int l = 0; l < n - 2; l++) {
-                        maxCnt = Math.max(maxCnt, (matrix[i][j] + matrix[i][j + 1] + matrix[i][j + 2]) + (matrix[k][l] + matrix[k][l + 1] + matrix[k][l + 2]));
+                        if (i != k || j == l + 3) {
+                            int sum = (matrix[i][j] + matrix[i][j + 1] + matrix[i][j + 2])
+                                    + (matrix[k][l] + matrix[k][l + 1] + matrix[k][l + 2]);
+
+                            maxCnt = Math.max(maxCnt, sum);
+                        }
                     }
                 }
             }
