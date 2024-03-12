@@ -13,14 +13,11 @@ public class Main {
 
         int[] picture = new int[10001];
 
-        int maxPosition = 0;
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
 
             int position = Integer.parseInt(st.nextToken());
             char sign = st.nextToken().charAt(0);
-
-            maxPosition = Math.max(maxPosition, position);
 
             if (sign == 'G') {
                 picture[position] = 1;
@@ -31,7 +28,7 @@ public class Main {
         }
 
         int maxSum = Integer.MIN_VALUE;
-        for (int i = 1; i < maxPosition - k + 1; i++) {
+        for (int i = 1; i < picture.length - k; i++) {
             int sum = 0;
 
             for (int j = i; j < i + k + 1; j++) {
