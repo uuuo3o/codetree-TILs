@@ -24,26 +24,29 @@ public class Main {
             price[i][1] = deliveryFee;
         }
 
-        Arrays.sort(price, Comparator.comparingInt(p -> p[0]));
-
         int maxCnt = 0;
         for (int i = 0; i < n; i++) {
 
             int sum = 0, cnt = 0;
 
+            int[] totalPrice = new int[n];
             for (int j = 0; j < n; j++) {
 
                 if (i == j) {
-                    price[i][0] /= 2;
+                    totalPrice[j] = (price[j][0] / 2) + price[j][1];
+                } else {
+                    totalPrice[j] = price[j][0] + price[j][1];
                 }
+            }
 
-                int totalPrice = price[j][0] + price[j][1];
+            Arrays.sort(totalPrice);
 
-                if (sum + totalPrice <= b) {
-                    sum += totalPrice;
+            for (int j = 0; j < n; j++) {
+
+                if (sum + totalPrice[j] <= b) {
+                    sum += totalPrice[j];
                     cnt++;
                 } else {
-                    price[i][0] *= 2;
                     break;
                 }
             }
