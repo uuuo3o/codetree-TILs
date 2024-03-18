@@ -24,7 +24,7 @@ public class Main {
             maxNum = Math.max(maxNum, x2);
         }
 
-        boolean condition = false;
+        boolean condition = true;
         int cnt = 0;
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
@@ -48,6 +48,8 @@ public class Main {
                                 }
                             }
                         }
+
+                        if (!condition) break;
                     }
 
                     if (condition) {
