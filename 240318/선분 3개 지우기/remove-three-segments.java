@@ -47,9 +47,9 @@ public class Main {
                                     condition = true;
                                 }
                             }
-                        }
 
-                        if (!condition) break;
+                            if (!condition) break;
+                        }
                     }
 
                     if (condition) {
