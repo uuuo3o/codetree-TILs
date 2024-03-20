@@ -11,29 +11,32 @@ public class Main {
 
         int[] sequence = new int[n];
 
-        int maxValue = 0;
+        int maxValue = 0, minValue = 101;
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
             sequence[i] = Integer.parseInt(st.nextToken());
+
+            minValue = Math.min(minValue, sequence[i]);
             maxValue = Math.max(maxValue, sequence[i]);
         }
 
+        Arrays.sort(sequence);
+
         int maxCnt = 0;
-        for (int i = 1; i < maxValue; i++) {
+
+        for (int i = minValue + 1; i < maxValue; i++) {
+
+            int cnt = 0;
+
             for (int j = 0; j < n; j++) {
-
-                int cnt = 0;
-
-                for (int k = i + 1; k < n; k++) {
-                    if (Math.abs(sequence[j] - i) == Math.abs(i - sequence[j])) {
+                for (int k = j + 1; k < n; k++) {
+                    if (sequence[k] - i == i - sequence[j]) {
                         cnt++;
                     }
                 }
-
-                maxCnt = Math.max(maxCnt, cnt);
             }
 
-
+            maxCnt = Math.max(maxCnt, cnt);
         }
         
         bw.write(maxCnt + "");
