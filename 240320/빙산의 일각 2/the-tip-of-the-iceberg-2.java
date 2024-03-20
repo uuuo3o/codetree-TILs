@@ -10,28 +10,29 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         int[] iceberg = new int[n];
 
-        int maxValue = 0;
+        int maxValue = 0, minValue = 1001;
         for (int i = 0; i < n; i++) {
             iceberg[i] = Integer.parseInt(br.readLine());
 
             maxValue = Math.max(maxValue, iceberg[i]);
+            minValue = Math.min(minValue, iceberg[i]);
         }
 
         int maxCnt = 0;
 
         for (int i = 1; i < maxValue; i++) {
 
+            boolean condition = false;
             int cnt = 0;
 
             for (int j = 0; j < iceberg.length; j++) {
-                iceberg[j] -= i;
-            }
-
-            for (int j = 0; j < iceberg.length - 1; j++) {
-                if (iceberg[j] != 0 && iceberg[j + 1] != 0) {
-                    continue;
+                if (iceberg[j] > i) {
+                    if (!condition) {
+                        condition = true;
+                        cnt++;
+                    }
                 } else {
-                    cnt++;
+                    condition = false;
                 }
             }
 
