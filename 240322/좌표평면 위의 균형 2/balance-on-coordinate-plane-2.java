@@ -24,67 +24,33 @@ public class Main {
             maxY = Math.max(maxY, y);
         }
 
-        int minXDiff = n, xIdx = 0;
-        for (int i = 0; i < maxX + 1; i++) {
+        int result = n;
+        for (int i = 0; i < maxX + 1; i += 2) {
+            for (int j = 0; j < maxY + 1; j += 2) {
 
-            int leftCnt = 0, rightCnt = 0;
+                int[] array = new int[4];
 
-            for (int j = 0; j < n; j++) {
-                if (inputValue[j][0] < i) {
-                    leftCnt++;
-                } else {
-                    rightCnt++;
+                for (int k = 0; k < n; k++) {
+
+                    int x = inputValue[k][0];
+                    int y = inputValue[k][1];
+
+                    if (x > i && y > j) {
+                        array[0]++;
+                    } else if (x < i && y > j) {
+                        array[1]++;
+                    } else if (x < i && y < j) {
+                        array[2]++;
+                    } else if (x > i && y < j) {
+                        array[3]++;
+                    }
                 }
-            }
 
-            if (minXDiff != Math.min(minXDiff, Math.abs(leftCnt - rightCnt))) {
-                minXDiff = Math.min(minXDiff, Math.abs(leftCnt - rightCnt));
-                xIdx = i;
-            }
-        }
+            int maxPoint = Arrays.stream(array).max().getAsInt();
 
-        int minYDiff = n, yIdx = 0;
-        for (int i = 0; i < maxY + 1; i++) {
-
-            int upCnt = 0, downCnt = 0;
-
-            for (int j = 0; j < n; j++) {
-                if (inputValue[j][1] < i) {
-                    downCnt++;
-                } else {
-                    upCnt++;
-                }
-            }
-
-            if (minYDiff != Math.min(minYDiff, Math.abs(upCnt - downCnt))) {
-                minYDiff = Math.min(minYDiff, Math.abs(upCnt - downCnt));
-                yIdx = i;
+            result = Math.min(result, maxPoint);
             }
         }
-
-        int result = 0;
-        int leftDown = 0, leftUp = 0, rightDown = 0, rightUp = 0;
-
-        for (int i = 0; i < n; i++) {
-            int x = inputValue[i][0];
-            int y = inputValue[i][1];
-
-
-            if (x < xIdx && y < yIdx) {
-                leftDown++;
-            } else if (x < xIdx && y > yIdx) {
-                leftUp++;
-            } else if (x > xIdx && y < yIdx) {
-                rightDown++;
-            } else if (x > xIdx && y > yIdx) {
-                rightUp++;
-            }
-        }
-
-        int leftMax = Math.max(leftUp, leftDown);
-        int rightMax = Math.max(rightUp, rightDown);
-
-        result = Math.max(leftMax, rightMax);
 
         bw.write(result + "");
 
