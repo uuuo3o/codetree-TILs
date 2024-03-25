@@ -23,12 +23,16 @@ public class Main {
                             "Thu", "Fri", "Sat", "Sun"};
 
         int dayIdx = findIndex(dayNames, dayName);
-        d1 += dayIdx;
 
-        int daysCnt = 1;
+        int daysCnt = 0;
+        int tryCnt = 0;
         while ((m1 != m2) || (d1 != d2)) {
 
-            d1 += 7;
+            if (tryCnt == 0) {
+                d1 += dayIdx;
+            } else {
+                d1 += 7;
+            }
 
             if (contains(days29, m1)) {
                 if (d1 > 29) {
@@ -52,6 +56,7 @@ public class Main {
             }
 
             daysCnt++;
+            tryCnt++;
         }
 
         bw.write(daysCnt + "");
