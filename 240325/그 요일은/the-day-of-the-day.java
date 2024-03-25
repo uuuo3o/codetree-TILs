@@ -30,10 +30,6 @@ public class Main {
 
             d1 += 7;
 
-            if (m1 == m2 && d1 > d2) {
-                break;
-            }
-
             if (contains(days29, m1)) {
                 if (d1 > 29) {
                     d1 -= 29;
@@ -49,6 +45,10 @@ public class Main {
                     d1 -= 31;
                     m1++;
                 }
+            }
+
+            if ((m1 == m2 && d1 > d2) || (m1 > m2) || m1 == 13) {
+                break;
             }
 
             daysCnt++;
