@@ -35,7 +35,7 @@ public class Main {
                 }
             } else {
                 for (int j = 0; j < m; j++) {
-                    line[++idx]++;
+                    line[idx++]++;
                 }
             }
 
