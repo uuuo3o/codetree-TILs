@@ -60,7 +60,7 @@ public class Main {
             }
         }
 
-        minX = maxX + xOFFSET + 1; minY = minY + yOFFSET + 1;
+        minX = maxX + xOFFSET + 1; minY = maxY + yOFFSET + 1;
         maxX = 0; maxY = 0;
 
         for (int i = 0; i < matrix.length; i++) {
@@ -75,7 +75,7 @@ public class Main {
             }
         }
 
-        bw.write((maxX - minX + 1) * (maxY - minY) + "");
+        bw.write((maxX - minX + 1) * (maxY - minY + 1) + "");
 
         bw.flush();
         bw.close();
