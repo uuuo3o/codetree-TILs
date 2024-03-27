@@ -63,6 +63,8 @@ public class Main {
         minX = maxX + xOFFSET + 1; minY = maxY + yOFFSET + 1;
         maxX = 0; maxY = 0;
 
+        boolean condition = false;
+
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 if (matrix[i][j] == 1) {
@@ -71,12 +73,18 @@ public class Main {
 
                     maxX = Math.max(maxX, i);
                     maxY = Math.max(maxY, j);
+
+                    condition = true;
                 }
             }
         }
 
-        bw.write((maxX - minX + 1) * (maxY - minY + 1) + "");
-
+        if (condition) {
+            bw.write((maxX - minX + 1) * (maxY - minY + 1) + "");
+        } else {
+            bw.write("0");
+        }
+        
         bw.flush();
         bw.close();
         br.close();
