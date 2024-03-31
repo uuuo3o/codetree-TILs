@@ -19,8 +19,9 @@ public class Main {
         }
 
         int maxSum = 0;
-        for (int i = 1; i < n; i++) {
-            maxSum = Math.max(maxSum, swapValue(ints, i, m));
+        for (int i = 1; i < ints.length; i++) {
+            int[] newArray = Arrays.copyOf(ints, ints.length);
+            maxSum = Math.max(maxSum, sumValue(newArray, i, m));
         }
 
         bw.write(maxSum + "");
@@ -30,20 +31,13 @@ public class Main {
         br.close();
     }
 
-    private static int swapValue(int[] array, int idx, int repeat) {
+    private static int sumValue(int[] array, int idx, int repeat) {
 
-        int sum = 0, index = idx, temp = 0;
+        int sum = 0;
 
         for (int i = 0; i < repeat; i++) {
-            int newIdx = array[index];
-
-            sum += newIdx;
-
-            temp = array[newIdx];
-            array[newIdx] = array[index];
-            array[index] = temp;
-
-            index = temp;
+            sum += array[idx];
+            idx = array[idx];
         }
 
         return sum;
