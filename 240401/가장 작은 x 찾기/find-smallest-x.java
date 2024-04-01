@@ -21,22 +21,23 @@ public class Main {
         boolean condition = false;
         int minResult = 0;
 
-        for (int i = 2; i <= 10000; i++) {
+        for (int i = 1; i <= 10000; i++) {
 
             int target = i;
+            int k = -1;
 
             for (int j = 0; j < n; j++) {
 
                 target *= 2;
 
-                for (int k = 0; k < array.length; k++) {
-
-                    if (target >= array[k][0] && target <= array[k][1]) {
-                        condition = true;
-                        break;
-                    }
+                k++;
+                if (target >= array[k][0] && target <= array[k][1]) {
+                    condition = true;
+                } else {
                     condition = false;
+                    break;
                 }
+
             }
 
             if (condition) {
