@@ -41,6 +41,8 @@ public class Main {
             }
         }
 
+        max = Math.max(max, value);
+
         bw.write(max + "");
 
         bw.flush();
