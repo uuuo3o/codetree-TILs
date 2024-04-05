@@ -33,7 +33,7 @@ public class Main {
 
                 if (original[idx] != i && original[idx] + i == sumArr[idx]) {
                     original[++idx] = i;
-                    i = 1;
+                    i = 0;
                     isTrue = true;
                 } else {
                     isTrue = false;
