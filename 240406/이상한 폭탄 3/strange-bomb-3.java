@@ -26,7 +26,7 @@ public class Main {
 
             for (int j = i + 1; j < bombs.length; j++) {
 
-                if (j > index + 3) break;
+                if (j > index + k) break;
 
                 if (bombs[index] == bombs[j] && (index - j) <= k) {
                     bomb++;
