@@ -25,6 +25,9 @@ public class Main {
             int index = i;
 
             for (int j = i + 1; j < bombs.length; j++) {
+
+                if (j > index + 3) break;
+
                 if (bombs[index] == bombs[j] && (index - j) <= k) {
                     bomb++;
                     index = j;
@@ -33,7 +36,7 @@ public class Main {
 
             if (maxBomb != Math.max(maxBomb, bomb)) {
                 maxBomb = Math.max(maxBomb, bomb);
-                
+
                 if (result < bombs[i]) {
                     result = bombs[i];
                 }
