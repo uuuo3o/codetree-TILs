@@ -17,20 +17,11 @@ public class Main {
         int c = Integer.parseInt(st.nextToken());
         int d = Integer.parseInt(st.nextToken());
 
-        int[] area = new int[Math.max(b, d) + 1];
-
-        for (int i = a; i < b; i++) {
-            area[i]++;
-        }
-        for (int i = c; i < d; i++) {
-            area[i]++;
-        }
-
         int cleanArea = 0;
-        for (int i = 1; i < area.length; i++) {
-            if (area[i] >= 1) {
-                cleanArea++;
-            }
+        if (isIntersecting(a, b, c, d)) {
+            cleanArea = (Math.max(b, d) - Math.min(a, c));
+        } else {
+            cleanArea = (b - a) + (d - c);
         }
 
         bw.write(cleanArea + "");
@@ -38,5 +29,9 @@ public class Main {
         bw.flush();
         bw.close();
         br.close();
+    }
+
+    private static boolean isIntersecting(int x1, int x2, int x3, int x4) {
+        return x2 >= x3 && x1 <= x4;
     }
 }
