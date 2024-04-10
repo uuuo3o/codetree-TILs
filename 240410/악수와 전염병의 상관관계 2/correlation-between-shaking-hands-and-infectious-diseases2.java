@@ -16,8 +16,11 @@ public class Main {
         int T = Integer.parseInt(st.nextToken());   // 총 악수 횟수
 
         // 전염된 개발자는 1, 전염되지 않은 개발자는 0
-        int[] developers = new int[N + 1];
-        developers[P] = 1;
+        int[][] developers = new int[N + 1][2];
+        boolean[] infection = new boolean[N + 1];
+        developers[P][0] = 1;
+        developers[P][1] = K;
+        infection[P] = true;
 
         int[][] handshake = new int[T][3];
         for (int i = 0; i < T; i++) {
@@ -37,18 +40,30 @@ public class Main {
             int x = handshake[i][1];
             int y = handshake[i][2];
 
-            if (developers[x] == 1 || developers[y] == 1) {
-                K--;
-                developers[x] = 1;
-                developers[y] = 1;
-            }
+            if ((developers[x][0] == 1 && developers[x][1] > 0) ||
+                (developers[y][0] == 1 && developers[y][1] > 0)) {
+                developers[x][0] = 1;
+                developers[y][0] = 1;
 
-            if (K == 0) break;
+                if (infection[x]) {
+                    developers[x][1]--;
+                } else {
+                    developers[x][1] = 3;
+                    infection[x] = true;
+                }
+
+                if (infection[y]) {
+                    developers[y][1]--;
+                } else {
+                    developers[y][1] = 3;
+                    infection[y] = true;
+                }
+            }
         }
 
 
         for (int i = 1; i < developers.length; i++) {
-            bw.write(developers[i] + "");
+            bw.write(developers[i][0] + "");
         }
 
         bw.flush();
