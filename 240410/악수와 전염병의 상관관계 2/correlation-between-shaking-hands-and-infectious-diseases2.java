@@ -40,22 +40,24 @@ public class Main {
             int x = handshake[i][1];
             int y = handshake[i][2];
 
+            // 악수한 개발자 중 한 명 이상이라도 감염이 되어있고, 전염횟수가 남아있는 경우
             if ((developers[x][0] == 1 && developers[x][1] > 0) ||
                 (developers[y][0] == 1 && developers[y][1] > 0)) {
+                
                 developers[x][0] = 1;
                 developers[y][0] = 1;
 
                 if (infection[x]) {
                     developers[x][1]--;
                 } else {
-                    developers[x][1] = 3;
+                    developers[x][1] = K;
                     infection[x] = true;
                 }
 
                 if (infection[y]) {
                     developers[y][1]--;
                 } else {
-                    developers[y][1] = 3;
+                    developers[y][1] = K;
                     infection[y] = true;
                 }
             }
