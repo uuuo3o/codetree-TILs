@@ -13,8 +13,8 @@ public class Main {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        int[] A = new int[1001];
-        int[] B = new int[1001];
+        int[] A = new int[10000001];
+        int[] B = new int[10000001];
 
         int time = 1;
         for (int i = 0; i < n; i++) {
