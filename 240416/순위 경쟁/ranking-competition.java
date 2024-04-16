@@ -48,18 +48,31 @@ public class Main {
     // 1: A / 2: B / 3: C
     // 4: A, B / 5: A, C / 6: B, C
     private static int status(int score1, int score2, int score3) {
-        if (score1 < score2 && score1 < score3) {
-            if (score2 < score3) return 3;
-            else if (score2 == score3) return 6;
-            else return 2;
-        } else if (score2 < score1 && score2 < score3) {
-            if (score1 < score3) return 3;
-            else if (score1 == score3) return 5;
-            else return 1;
-        } else if (score3 < score1 && score3 < score2) {
-            if (score1 < score2) return 2;
-            else if (score1 == score2) return 4;
-            else return 1;
-        } else return 0;
+        int max = Math.max(score1, Math.max(score2, score3));
+
+        if (max == score1) {
+
+            if (score1 == score2) {
+                if (score2 > score3) return 4;
+                else return 0;
+            } else if (score1 == score3) {
+                if (score3 > score2) return 5;
+                else return 0;
+            } else {
+                return 1;
+            }
+        }
+
+        if (max == score2) {
+
+            if (score2 == score3) {
+                if (score3 > score1) return 5;
+                else return 0;
+            } else {
+                return 2;
+            }
+        }
+
+        return 3;
     }
 }
