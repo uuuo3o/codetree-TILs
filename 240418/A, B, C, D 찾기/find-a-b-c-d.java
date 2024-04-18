@@ -20,15 +20,15 @@ public class Main {
         int b = arr[1];
         int c = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            if (a + b >= arr[i] && arr[i] != a && arr[i] != b) {
+        for (int i = 2; i < arr.length; i++) {
+            if (a + b >= arr[i]) {
                 c = arr[i];
                 break;
             }
         }
-        
+
         int d = arr[arr.length - 1] - a - b - c;
-        
+
         bw.write(a + " " + b + " " + c + " " + d);
 
         bw.flush();
