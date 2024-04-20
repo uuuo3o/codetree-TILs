@@ -18,7 +18,7 @@ public class Main {
             checkPoints[i][1] = Integer.parseInt(st.nextToken());
         }
 
-        int minDistance = 9999;
+        int minDistance = Integer.MAX_VALUE;
         for (int i = 1; i < checkPoints.length - 1; i++) {
 
             int distance = 0;
