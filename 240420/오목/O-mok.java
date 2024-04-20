@@ -21,32 +21,30 @@ public class Main {
         boolean condition = false;
         int iIdx = 0, jIdx = 0;
 
-        for (int i = 1; i < 16; i++) {
-            for (int j = 1; j < 16; j++) {
-                if (columnVictory(checkerBoard, i, j)) {
+        for (int i = 1; i < 20; i++) {
+            for (int j = 1; j < 20; j++) {
+                if (i < 16 && columnVictory(checkerBoard, i, j)) {
                         condition = true;
                         iIdx = i + 2;
                         jIdx = j;
                         break;
                 }
 
-                if (rowVictory(checkerBoard, i, j)) {
+                if (j < 16 && rowVictory(checkerBoard, i, j)) {
                     condition = true;
                     iIdx = i;
                     jIdx = j + 2;
                     break;
                 }
 
-                if (i >= 5) {
-                    if (diagonalVictory1(checkerBoard, i, j)) {
-                        condition = true;
-                        iIdx = i - 2;
-                        jIdx = j + 2;
-                        break;
-                    }
+                if (i >= 5 && j < 16 && diagonalVictory1(checkerBoard, i, j)) {
+                    condition = true;
+                    iIdx = i - 2;
+                    jIdx = j + 2;
+                    break;
                 }
 
-                if (diagonalVictory2(checkerBoard, i, j)) {
+                if (i < 16 && j < 16 && diagonalVictory2(checkerBoard, i, j)) {
                     condition = true;
                     iIdx = i + 2;
                     jIdx = j + 2;
