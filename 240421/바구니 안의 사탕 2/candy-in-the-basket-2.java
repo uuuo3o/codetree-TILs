@@ -39,19 +39,23 @@ public class Main {
         int maxCandy = 0;
 
         if (k >= candy.length) {
-            k = 0;
-        }
+            for (int i = 0; i < candy.length; i++) {
+                maxCandy += candy[i];
+            }
+        } else {
+            for (int i = k; i < candy.length - k; i++) {
 
-        for (int i = k; i < candy.length - k; i++) {
+                int sum = 0;
 
-            int sum = 0;
+                for (int j = i - k; j <= i + k; j++) {
+                    sum += candy[j];
+                }
 
-            for (int j = i - k; j <= i + k; j++) {
-                sum += candy[j];
+                maxCandy = Math.max(maxCandy, sum);
             }
 
-            maxCandy = Math.max(maxCandy, sum);
         }
+
 
         bw.write(maxCandy + "");
 
