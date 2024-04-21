@@ -33,10 +33,15 @@ public class Main {
 
         int[] candy = new int[maxNumber + 1];
         for (int i = 0; i < arr.length; i++) {
-            candy[arr[i][1]] = arr[i][0];
+            candy[arr[i][1]] += arr[i][0];
         }
 
         int maxCandy = 0;
+
+        if (k >= candy.length) {
+            k = 0;
+        }
+
         for (int i = k; i < candy.length - k; i++) {
 
             int sum = 0;
