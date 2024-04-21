@@ -43,11 +43,12 @@ public class Main {
                 maxCandy += candy[i];
             }
         } else {
-            for (int i = k; i < candy.length - k; i++) {
+
+            for (int i = k; i < (candy.length - k <= k ? candy.length : candy.length - k); i++) {
 
                 int sum = 0;
 
-                for (int j = i - k; j <= i + k; j++) {
+                for (int j = i - k; j < Math.min((i + k + 1), candy.length); j++) {
                     sum += candy[j];
                 }
 
@@ -55,7 +56,6 @@ public class Main {
             }
 
         }
-
 
         bw.write(maxCandy + "");
 
