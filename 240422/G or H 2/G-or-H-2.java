@@ -35,18 +35,16 @@ public class Main {
             else hCnt++;
 
             for (int j = i + 1; j < sign.length; j++) {
-                
+
                 if (sign[j] == null) continue;
 
                 if (sign[j].equals("G")) gCnt++;
                 else hCnt++;
 
-                if (gCnt == hCnt) {
+                if (gCnt == hCnt || gCnt == 0 || hCnt == 0) {
                     maxLength = Math.max(maxLength, j - i);
                 }
             }
-
-
         }
 
         bw.write(maxLength + "");
