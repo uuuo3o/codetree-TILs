@@ -3,9 +3,6 @@ import java.util.*;
 
 public class Main {
 
-    static int[] dx = new int[] {1, 1, 1, -1, -1, -1, 0, 0};
-    static int[] dy = new int[] {-1, 0, 1, -1, 0, 1, -1, 1};
-
     public static void main(String[] args) throws Exception {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,7 +11,6 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         int[] numArr = new int[n];
         int[][] ballCnt = new int[n][2];
-
 
         for (int i = 0; i < n; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
@@ -28,7 +24,9 @@ public class Main {
         for (int i = 1; i <= 9; i++) {
             for (int j = 1; j <= 9; j++) {
                 for (int k = 1; k <= 9; k++) {
-                    
+
+                    if (i == j || i == k || j == k) continue;
+
                     boolean isSatisfied = true;
 
                     for (int l = 0; l < n; l++) {
