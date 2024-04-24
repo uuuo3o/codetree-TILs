@@ -44,35 +44,41 @@ public class Main {
         int x2 = matrix[j][0], y2 = matrix[j][1];
         int x3 = matrix[k][0], y3 = matrix[k][1];
 
-        int width = 0;
-        int height = 0;
+        if (x1 == x2) {
 
-        if (y1 == y2 && y1 != y3) {
-            width = Math.abs(x1 - x2);
-
-            if (x1 == x3) {
-                height = Math.abs(y1 - y3);
+            if (y1 == y3) {
+                return Math.abs(x1 - x3) * Math.abs(y1 - y2);
             }
-            if (x2 == x3) {
-                height = Math.abs(y2 - y3);
+
+            if (y2 == y3) {
+                return Math.abs(x2 - x3) * Math.abs(y1 - y2);
             }
         }
 
-        if (y1 == y3 && y1 != y2) {
-            width = Math.abs(x1 - x3);
+        if (x1 == x3) {
 
-            if (x1 == x2) {
-                height = Math.abs(y1 - y2);
+            if (y1 == y2) {
+                return Math.abs(x1 - x2) * Math.abs(y1 - y3);
             }
-            if (x3 == x2) {
-                height = Math.abs(y2 - y3);
+
+            if (y2 == y3) {
+                return Math.abs(x2 - x3) * Math.abs(y1 - y3);
             }
         }
 
-        if (y1 == y2 && y1 == y3) {
-            return 0;
+        if (x2 == x3) {
+
+            if (y2 == y1) {
+                return Math.abs(x1 - x2) * Math.abs(y2 - y3);
+            }
+
+            if (y3 == y1) {
+                return Math.abs(x1 - x3) * Math.abs(y2 - y3);
+            }
         }
 
-        return width * height;
+
+
+        return 0;
     }
 }
