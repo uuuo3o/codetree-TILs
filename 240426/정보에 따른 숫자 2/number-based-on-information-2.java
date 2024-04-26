@@ -29,7 +29,7 @@ public class Main {
 
             int minD1 = 1000;
             int minD2 = 1000;
-            for (int j = 1; j <= b; j++) {
+            for (int j = 1; j < line.length; j++) {
 
                 if (line[j] == null) continue;
 
