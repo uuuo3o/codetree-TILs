@@ -15,7 +15,7 @@ public class Main {
         LinkedList<Character> bread = new LinkedList<>();
 
         String original = br.readLine();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < original.length(); i++) {
             bread.add(original.charAt(i));
         }
 
