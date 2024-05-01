@@ -37,7 +37,9 @@ public class Main {
                 }
 
             } else if (cmd.equals("D")) {
-                iter.next();
+                if (iter.hasNext()) {
+                    iter.next();
+                }
                 iter.remove();
 
             } else if (cmd.equals("P")) {
