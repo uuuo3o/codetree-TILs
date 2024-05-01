@@ -39,8 +39,8 @@ public class Main {
             } else if (cmd.equals("D")) {
                 if (iter.hasNext()) {
                     iter.next();
+                    iter.remove();
                 }
-                iter.remove();
 
             } else if (cmd.equals("P")) {
                 char alphabet = st.nextToken().charAt(0);
